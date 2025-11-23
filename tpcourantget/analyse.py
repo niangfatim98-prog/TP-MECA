@@ -82,7 +82,13 @@ plt.legend()
 plt.axis('equal')
 
 plt.tight_layout()
-plt.show()
+out_file = 'tpcourantget/forces_plot.png'
+plt.savefig(out_file, dpi=200)
+try:
+  plt.show()
+except Exception:
+  pass
 
 print(f"SANS pesanteur: F_Euler = {a_sans:.3f}·F_mes + {b_sans:.3f}, R² = {R2_sans:.3f}")
 print(f"AVEC pesanteur: F_Euler_grav = {a_grav:.3f}·F_mes + {b_grav:.3f}, R² = {R2_grav:.3f}")
+print(f"Graphique sauvegardé dans: {out_file}")
